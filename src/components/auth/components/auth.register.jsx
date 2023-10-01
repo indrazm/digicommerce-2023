@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import { useRegister } from "../hooks/useRegister";
 
 export const Register = () => {
+  const { handleChangeRegisterData, handleSubmitRegisterData } = useRegister();
+
   return (
     <main className="w-[360px] space-y-8">
       <div className="space-y-2">
@@ -10,13 +14,15 @@ export const Register = () => {
       </div>
       <div className="space-y-2">
         <div className="grid grid-cols-2 gap-2">
-          <input name="firstName" placeholder="john" />
-          <input name="lastName" placeholder="doe" />
+          <input name="firstName" placeholder="john" onChange={handleChangeRegisterData} />
+          <input name="lastName" placeholder="doe" onChange={handleChangeRegisterData} />
         </div>
-        <input name="username" placeholder="username" />
-        <input name="email" placeholder="email@yours.com" />
-        <input name="password" type="password" placeholder="password" />
-        <button className="w-full">Register</button>
+        <input name="username" placeholder="username" onChange={handleChangeRegisterData} />
+        <input name="email" placeholder="email@yours.com" onChange={handleChangeRegisterData} />
+        <input name="password" type="password" placeholder="password" onChange={handleChangeRegisterData} />
+        <button className="w-full" onClick={handleSubmitRegisterData}>
+          Register
+        </button>
       </div>
       <p>
         Hve an account ?{" "}
