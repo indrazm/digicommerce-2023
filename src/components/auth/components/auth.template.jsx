@@ -4,15 +4,14 @@ import React from "react";
 
 export const AuthTemplate = ({ children }) => {
   return (
-    <main className="grid grid-cols-2 h-screen">
-      <section className="bg-secondary-50 p-8">
-        <Link href="/">
-          <button className="btnGhost text-secondary-950 hover:text-secondary-100 flex items-center gap-1">
-            <ChevronLeft size={18} />
-            back to home
-          </button>
-        </Link>
-      </section>
+    <main className="grid grid-cols-1 lg:grid-cols-2 h-screen">
+      <Link href="/" className="fixed top-9 left-9">
+        <button className="btnOutline lg:btnGhost lg:text-secondary-950 lg:hover:text-secondary-100 flex items-center gap-1">
+          <ChevronLeft size={18} />
+          back to homes
+        </button>
+      </Link>
+      <section className="hidden lg:block bg-secondary-50 p-8"></section>
       <section className="flex justify-center items-center">{children}</section>
     </main>
   );
