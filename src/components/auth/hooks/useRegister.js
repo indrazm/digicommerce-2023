@@ -15,8 +15,19 @@ export const useRegister = () => {
     setRegisterData({ ...registerData, [name]: value });
   };
 
-  const handleSubmitRegisterData = () => {
-    console.log(registerData);
+  const handleSubmitRegisterData = async () => {
+    const { firstName, lastName, username, email, password } = registerData;
+    const res = await fetch(`/api/v1/auth/register`, {
+      method: "POST",
+      body: JSON.stringify({ firstName, lastName, username, email, password }),
+    });
+    const { message, errorMessage } = await res.json();
+
+    if (errorMessage) {
+      alert(errorMessage);
+    }
+
+    console.log(message);
   };
 
   return { registerData, handleChangeRegisterData, handleSubmitRegisterData };

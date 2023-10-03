@@ -1,8 +1,17 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 export const AuthTemplate = ({ children }) => {
+  const pathname = usePathname();
+
+  if (pathname === "/verify") {
+    return <section className="h-screen flex justify-center items-center">{children}</section>;
+  }
+
   return (
     <main className="grid grid-cols-1 lg:grid-cols-2 h-screen">
       <Link href="/" className="fixed top-9 left-9">
