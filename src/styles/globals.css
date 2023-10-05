@@ -12,10 +12,10 @@
   h4,
   h5,
   h6 {
-    @apply font-bold tracking-tight;
+    @apply font-medium tracking-tight text-secondary-50;
   }
   h1 {
-    @apply text-4xl;
+    @apply text-5xl;
   }
   h2 {
     @apply text-3xl;
@@ -24,7 +24,7 @@
     @apply text-2xl;
   }
   h4 {
-    @apply text-xl;
+    @apply text-lg font-normal text-secondary-300;
   }
   h5 {
     @apply text-lg;
@@ -58,5 +58,8 @@
   }
   .link {
     @apply cursor-pointer text-secondary-300 font-medium hover:text-primary-600 transition;
+  }
+  .menu {
+    @apply cursor-pointer text-secondary-300 font-medium hover:text-secondary-50 transition duration-200 ease-in-out;
   }
 }

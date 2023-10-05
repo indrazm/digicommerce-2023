@@ -1,22 +1,21 @@
+import { ProductCard } from "@/components/home/components/product.card";
+
 export default function Page() {
-  const date = new Date();
   return (
-    <div className="m-8">
-      <div className="card">
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-      </div>
-      <input type="text" placeholder="Input" />
-      <textarea placeholder="Textarea" />
-      <select>
-        <option>Option 1</option>
-        <option>Option 2</option>
-      </select>
-      <button>Submit</button>
-      <button className="btnSecondary">Secondary</button>
-      <button className="btnOutline">Outline</button>
-      <button className="btnGhost">Ghost</button>
-    </div>
+    <main className="space-y-20">
+      <section className="max-w-3xl m-auto text-center space-y-8 mt-40">
+        <h1>7,576 curated design resources to speed up your creative workflow.</h1>
+        <h4>Join a growing family of 699,616 designers and makers from around the world.</h4>
+      </section>
+      <section className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </section>
+    </main>
   );
 }
