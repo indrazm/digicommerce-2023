@@ -2,6 +2,7 @@ import { ScreenSize } from "@/components/sharedui/screenSize";
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { StandartLayout } from "@/components/template/standart.layout";
+import { Providers } from "@/components/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +15,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <StandartLayout>{children}</StandartLayout>
+        <Providers>
+          <StandartLayout>{children}</StandartLayout>
+        </Providers>
       </body>
     </html>
   );

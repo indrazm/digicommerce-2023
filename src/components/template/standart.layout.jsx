@@ -19,7 +19,7 @@ export const StandartLayout = ({ children }) => {
     <>
       <ScreenSize />
       <div className="max-w-6xl mx-8 lg:m-auto flex flex-col justify-between min-h-screen">
-        <div className="space-y-12">
+        <div className="space-y-24">
           <Header />
           <main>{children}</main>
         </div>
