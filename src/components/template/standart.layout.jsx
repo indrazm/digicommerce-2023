@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 export const StandartLayout = ({ children }) => {
   const currentPath = usePathname();
 
-  if (currentPath === "/login" || currentPath === "/register") {
+  if (currentPath === "/login" || currentPath === "/register" || currentPath.startsWith("/dashboard")) {
     return (
       <>
         <ScreenSize />
