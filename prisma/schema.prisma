@@ -40,9 +40,9 @@ model Product {
   desc          String
   featuredImage String
   productImages String[]
-  highlights    String[]
-  format        String
-  size          String
+  highlights    String?
+  format        String?
+  size          String?
   price         Int?
   isDeleted     Boolean  @default(false)
 }

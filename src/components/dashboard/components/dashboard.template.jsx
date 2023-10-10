@@ -11,7 +11,9 @@ export const DashboardTemplate = ({ children }) => {
         </Link>
         <div className="menu">Orders</div>
       </aside>
-      <section className="w-[calc(100vw-230px)]  p-6">{children}</section>
+      <section className="w-[calc(100vw-230px)] py-24 h-screen overflow-y-auto">
+        <div className="max-w-2xl m-auto">{children}</div>
+      </section>
     </main>
   );
 };
