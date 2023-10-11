@@ -45,4 +45,13 @@ model Product {
   size          String?
   price         Int?
   isDeleted     Boolean  @default(false)
+  category      Category @relation(fields: [categoryId], references: [id])
+  categoryId    String
+}
+
+model Category {
+  id       String   @id @default(uuid())
+  name     String
+  slug     String   @unique
+  products Product[]
 }

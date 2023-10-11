@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fileUpload } from "@/lib/aws/fileUpload";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
 
-export const CreateProduct = () => {
+export const CreateProduct = ({ categories }) => {
   const [productData, setProductData] = useState({
     id: uuidv4(),
     name: "",
@@ -98,6 +98,10 @@ export const CreateProduct = () => {
     router.push("/dashboard/products");
   };
 
+  useEffect(() => {
+    setProductData({ ...productData, category: categories[0].id });
+  }, [categories]);
+
   return (
     <main className="space-y-4">
       <section className="flex justify-between items-end">
@@ -115,8 +119,13 @@ export const CreateProduct = () => {
       <div className="space-y-2">
         <label htmlFor="category">Select category</label>
         <select name="category" onChange={handleChange}>
-          <option value="ui">UI</option>
-          <option value="figma">Figma</option>
+          {categories.map(({ id, name }) => {
+            return (
+              <option value={id} key={id}>
+                {name}
+              </option>
+            );
+          })}
         </select>
       </div>
       <button onClick={() => fileInput.current.click()} className="btnOutline block">

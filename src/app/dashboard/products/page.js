@@ -25,6 +25,7 @@ export default async function Page() {
       <section className="grid grid-cols-3 gap-4">
         {products.map(({ id, name, price, featuredImage, slug }) => {
           const imageUrl = `https://ik.imagekit.io/wqoeuqhlmc/${id}/${featuredImage}`;
+
           <ProductCard key={id} name={name} price={price} featuredImage={imageUrl} slug={slug} />;
         })}
       </section>

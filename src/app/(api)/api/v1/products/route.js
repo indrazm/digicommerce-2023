@@ -29,7 +29,6 @@ export async function POST(req) {
   const { id, name, shortDescription, longDescription, price, category, featuredImageName, productImagesNameArray } = await req.json();
   const slug = slugify(name, { lower: true });
 
-  // console.log({ id, name, slug, shortDescription, longDescription, price, category, featuredImageName, productImagesNameArray });
   try {
     const product = await prisma.product.create({
       data: {
@@ -39,6 +38,7 @@ export async function POST(req) {
         shortDesc: shortDescription,
         desc: longDescription,
         price: Number(price),
+        categoryId: category,
         featuredImage: featuredImageName,
         productImages: productImagesNameArray,
       },
